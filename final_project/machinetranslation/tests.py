@@ -3,7 +3,7 @@ from translator import english_to_french,french_to_english
 import unittest
 
 # Test cases for English to French translations.
-class test_English_To_French(unittest.TestCase):
+class TestEnglishToFrench(unittest.TestCase):
     # Andre Collins
     def test_english_to_french(self):        
         # Checks for an empty field or null.
@@ -20,7 +20,7 @@ class test_English_To_French(unittest.TestCase):
         self.assertNotEqual(english_to_french('Good Afternoon'),'Good Afternoon')
 
 # Test cases for French to English translations.
-class testFrench_To_English(unittest.TestCase):
+class TestFrenchToEnglish(unittest.TestCase):
     # Andre Collins
     def test_french_to_english(self):
         # Checks for an empty field or null.

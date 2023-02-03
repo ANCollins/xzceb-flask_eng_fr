@@ -8,12 +8,13 @@ from dotenv import load_dotenv
 load_dotenv()
 apikey = os.environ['apikey']
 url = os.environ['url']
-authenticator = IAMAuthenticator('{apikey}')
+authenticator = IAMAuthenticator(apikey)
 langT = LanguageTranslatorV3(
     version='{version}',
     authenticator=authenticator
 )
 langT.set_service_url('https://api.us-south.language-translator.watson.cloud.ibm.com')
+langT.set_disable_ssl_verification(True)
 
 def english_to_french(english_text):
     """ Function to translate English to French. """
