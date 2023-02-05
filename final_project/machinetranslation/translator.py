@@ -10,17 +10,15 @@ apikey = os.environ['apikey']
 url = os.environ['url']
 authenticator = IAMAuthenticator(apikey)
 langT = LanguageTranslatorV3(
-    version='{version}',
+    version='2022-12-23',
     authenticator=authenticator
 )
-langT.set_service_url('https://api.us-south.language-translator.watson.cloud.ibm.com')
+langT.set_service_url('https://api.au-syd.language-translator.watson.cloud.ibm.com/instances/c09dabd6-4b24-47ea-906e-8967de86b340')
+
+langT.set_disable_ssl_verification(True)
 
 def english_to_french(english_text):
-    """ Function to translate English to French. """
-    # This is to check for Null or empty text field.
-    if english_text == "":
-        return "Enter English Text"
-    # Translates the english text to french text.
+    ''' Function to translate English to French. '''
     translation = langT.translate(
         text = english_text,
         model_id = 'en-fr'
@@ -29,11 +27,7 @@ def english_to_french(english_text):
     return french_text
 
 def french_to_english(french_text):
-    """ Function to translate French to English """
-    # This is to check for Null or empty text field.
-    if french_text == "":
-        return "Enter French Text"
-        # Translates the english text to french text.
+    ''' Function to translate French to English '''
     translation = langT.translate(
         text = french_text,
         model_id = 'fr-en'
