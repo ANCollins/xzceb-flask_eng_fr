@@ -5,17 +5,15 @@ from ibm_watson import LanguageTranslatorV3
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv() # Loads the api key and url from the env file.
 apikey = os.environ['apikey']
 url = os.environ['url']
-authenticator = IAMAuthenticator(apikey)
+authenticator = IAMAuthenticator(apikey) # Authenticates API key.
 langT = LanguageTranslatorV3(
     version='2022-12-23',
     authenticator=authenticator
 )
-langT.set_service_url('https://api.au-syd.language-translator.watson.cloud.ibm.com/instances/c09dabd6-4b24-47ea-906e-8967de86b340')
-
-langT.set_disable_ssl_verification(True)
+langT.set_service_url(url)
 
 def english_to_french(english_text):
     ''' Function to translate English to French. '''
