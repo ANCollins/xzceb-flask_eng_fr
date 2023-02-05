@@ -5,7 +5,7 @@ from ibm_watson import LanguageTranslatorV3
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 from dotenv import load_dotenv
 
-load_dotenv() # Loads the api key and url from the env file.
+load_dotenv() # Loads the api key and url from the env file. Andre Collins
 apikey = os.environ['apikey']
 url = os.environ['url']
 authenticator = IAMAuthenticator(apikey) # Authenticates API key.
